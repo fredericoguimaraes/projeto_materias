@@ -160,11 +160,11 @@ def dados_barh(turno):
 turnos = ['Manhã','Tarde','Noite']
 selec_turno = st.selectbox("Turno",turnos)
 
-base_g2 = dados_barh(selec_turno).sort_values(by='valor',ascending=False)
+base_g2 = dados_barh(selec_turno).sort_values(by='valor',ascending=True)
 layout = go.Layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig2 = go.Figure(go.Bar(x=[base_g2['valor']],y=[base_g2['curso']],orientation='h'),layout= layout)
+fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h'),layout= layout)
 fig2.update_xaxes(visible=False)
 fig2.update_yaxes(visible=False)
 fig2.update_layout(title="Ranking de Cursos por Turno")
