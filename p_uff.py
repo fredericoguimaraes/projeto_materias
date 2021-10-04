@@ -161,6 +161,7 @@ def dados_barh(turno):
 
 
 # grafico 2
+st.subheader("Ranking de cursos por turno")
 turnos = ['Manhã','Tarde','Noite']
 selec_turno = st.selectbox("Turno",turnos)
 
