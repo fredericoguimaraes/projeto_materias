@@ -73,7 +73,7 @@ layout = go.Layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
 fig = go.Figure(data=[
-    go.Bar(name="Manhã",y=[d_graf2['Valor'][0]],text="{0:.2f}%".format(d_graf2['Valor'][0]*100)),go.Bar(name="Tarde",y=[d_graf2['Valor'][2]]),go.Bar(name="Noite",y=[d_graf2['Valor'][1]])],layout=layout)
+    go.Bar(name="Manhã",y=[d_graf2['Valor'][0]],text="{0:.2f}%".format(d_graf2['Valor'][0]*100)),go.Bar(name="Tarde",y=[d_graf2['Valor'][2]],text="{0:.2f}%".format(d_graf2['Valor'][2]*100)),go.Bar(name="Noite",y=[d_graf2['Valor'][1]],text="{0:.2f}%".format(d_graf2['Valor'][1]*100))],layout=layout)
 fig.update_xaxes(visible=False)
 fig.update_yaxes(visible=False)
 fig.update_layout(barmode='group')
