@@ -76,7 +76,7 @@ fig = go.Figure(data=[
     go.Bar(name="Manhã",y=[d_graf2['Valor'][0]],text="{0:.2f}%".format(d_graf2['Valor'][0]*100),textposition="auto"),go.Bar(name="Tarde",y=[d_graf2['Valor'][2]],text="{0:.2f}%".format(d_graf2['Valor'][2]*100),textposition="auto"),go.Bar(name="Noite",y=[d_graf2['Valor'][1]],text="{0:.2f}%".format(d_graf2['Valor'][1]*100),textposition="auto")],layout=layout)
 fig.update_xaxes(visible=False)
 fig.update_yaxes(visible=False)
-fig.update_layout(barmode='group')
+fig.update_layout(barmode='group',title="Distribuição de matérias por turno")
 fig.update_layout_images(visible=False)
 
 # Define o título do Dashboard
