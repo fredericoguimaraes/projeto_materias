@@ -6,6 +6,10 @@ from datetime import date
 import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia \n       UFF")
+def ler_dados(curso):
+    curso = curso_selecionado + '.xlsx'
+    base = pd.read_excel(curso)
+    return base
 
 def Tratabase(base):
     l_colunas = ['Horário Seg', 'Horário Ter', 'Horário Qua', 'Horário Qui', 'Horário Sex', 'Horário Sáb']
@@ -90,10 +94,10 @@ st.plotly_chart(fig2)
 cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 curso_selecionado = st.selectbox('Cursos',cursos)
 
-def ler_dados(curso):
-    curso = curso_selecionado + '.xlsx'
-    base = pd.read_excel(curso)
-    return base
+
+
+
+
 
 dados = ler_dados(curso_selecionado)
 
