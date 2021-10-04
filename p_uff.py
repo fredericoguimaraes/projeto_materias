@@ -5,7 +5,7 @@ from plotly import graph_objs as go
 from datetime import date
 import streamlit as st
 
-st.sidebar.title("Projeto- Engenharia \n UFF")
+st.sidebar.title("Projeto- Engenharia \n       UFF")
 cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 curso_selecionado = st.selectbox('Cursos',cursos)
 
@@ -86,8 +86,15 @@ fig.update_yaxes(visible=False)
 fig.update_layout(barmode='group',title="Distribuição de matérias por turno")
 fig.update_layout_images(visible=False)
 
-# Define o título do Dashboard
-
-
 
 st.plotly_chart(fig)
+
+turnos = ['Manhã','Tarde','Noite']
+st.selectbox("Turno",turnos)
+
+
+
+
+
+
+
