@@ -170,7 +170,7 @@ base_g2 = dados_barh(selec_turno).sort_values(by='valor',ascending=True)
 layout = go.Layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
-fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h'),layout= layout)
+fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h',text="{0:.2f}%".format(base_g2['valor']*100),layout= layout)
 fig2.update_xaxes(visible=False)
 fig2.update_yaxes(visible=True)
 fig2.update_layout(title="Ranking de Cursos por Turno")
