@@ -65,17 +65,16 @@ dados_filtrado['classificacao'] = classificacao
 
 # Grafico 1
 
-d_graf2 = dados_filtrado[['classificacao','Código Disciplina']].groupby(dados_filtrado['classificacao']).count()/len(dados_filtrado)
-d_graf2 = d_graf2.reset_index(drop=True)
+dados_filtrado = dados_filtrado.loc[dados_filtrado['classificacao'] !=0]
+d_graf2 = dados_filtrado[['Código Disciplina']].groupby(dados_filtrado['classificacao']).count()/len(dados_filtrado)
+d_graf2 = d_graf2.reset_index().rename(columns={'Código Disciplina': 'Valor'})
 w = 0.25
-x = np.arange(len(d_graf2))
+x = [1,1.25,1.5]
 layout = go.Layout(
     paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)'
-)
+    plot_bgcolor='rgba(0,0,0,0)')
 fig = go.Figure(data=[
-    go.Bar(name="Tarde",x=[1],y=[d_graf2['classificacao'][0]], width = 1-w),go.Bar(name="teste1",x=[1],y=[d_graf2['classificacao'][1]],width=w),go.Bar(name="teste2",x=[1],y=[d_graf2['classificacao'][2]],width= w+1)
-],layout=layout)
+    go.Bar(name="Manhã",x=x[0],y=[d_graf2['classificacao'][0]],width=0.25),go.Bar(name="Tarde",x=x[1],y=[d_graf2['classificacao'][2]],width=0.25),go.Bar(name="Noite",x=x[2],y=[d_graf2['classificacao'][1]],widht=0.25)],layout=layout)
 fig.update_xaxes(visible=False)
 fig.update_yaxes(visible=False)
 fig.update_layout_images(visible=False)
