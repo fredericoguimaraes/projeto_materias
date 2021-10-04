@@ -74,7 +74,7 @@ layout = go.Layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)')
 fig = go.Figure(data=[
-    go.Bar(name="Manhã",x=x[0],y=[d_graf2['classificacao'][0]],width=0.25),go.Bar(name="Tarde",x=x[1],y=[d_graf2['classificacao'][2]],width=0.25),go.Bar(name="Noite",x=x[2],y=[d_graf2['classificacao'][1]],widht=0.25)],layout=layout)
+    go.Bar(name="Manhã",x=[x[0]],y=[d_graf2['classificacao'][0]],width=0.25),go.Bar(name="Tarde",x=[x[1]],y=[d_graf2['classificacao'][2]],width=0.25),go.Bar(name="Noite",x=[x[2]],y=[d_graf2['classificacao'][1]],widht=0.25)],layout=layout)
 fig.update_xaxes(visible=False)
 fig.update_yaxes(visible=False)
 fig.update_layout_images(visible=False)
