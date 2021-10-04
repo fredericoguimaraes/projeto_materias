@@ -5,9 +5,16 @@ from plotly import graph_objs as go
 from datetime import date
 import streamlit as st
 
-cursos = ['agricola'] #,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
+st.title("Projeto- Engenharia UFF")
+cursos = ['agricola' ,"civil"] #,"eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
+curso_selecionado = st.selectbox('Cursos',cursos)
 
-dados = pd.read_excel('agricola.xlsx')
+def ler_dados(curso):
+    curso = curso_selecionado + 'xlsx'
+    base = pd.read_excel(curso)
+    return base
+
+dados = ler_dados(curso_selecionado)
 
 l_colunas = [ 'Horário Seg', 'Horário Ter', 'Horário Qua', 'Horário Qui', 'Horário Sex','Horário Sáb']
 
@@ -81,10 +88,6 @@ fig.update_layout_images(visible=False)
 
 # Define o título do Dashboard
 
-st.title("Projeto- Matérias")
 
-
-
-empresa_selecionada = st.selectbox('Cursos',cursos)
 
 st.plotly_chart(fig)
