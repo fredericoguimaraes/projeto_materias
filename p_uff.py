@@ -10,7 +10,7 @@ cursos = ['agricola' ,"civil"] #,"eletrica","mecanica","petroleo","producao","qu
 curso_selecionado = st.selectbox('Cursos',cursos)
 
 def ler_dados(curso):
-    curso = curso_selecionado + 'xlsx'
+    curso = curso_selecionado + '.xlsx'
     base = pd.read_excel(curso)
     return base
 
