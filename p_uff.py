@@ -166,7 +166,7 @@ layout = go.Layout(
     plot_bgcolor='rgba(0,0,0,0)')
 fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h'),layout= layout)
 fig2.update_xaxes(visible=False)
-fig2.update_yaxes(visible=False)
+fig2.update_yaxes(visible=True)
 fig2.update_layout(title="Ranking de Cursos por Turno")
 fig2.update_layout_images(visible=False)
 st.plotly_chart(fig2)
