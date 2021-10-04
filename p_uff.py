@@ -7,7 +7,7 @@ import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia \n       UFF")
 def ler_dados(curso):
-    curso = curso_selecionado + '.xlsx'
+    curso = curso + '.xlsx'
     base = pd.read_excel(curso)
     return base
 
