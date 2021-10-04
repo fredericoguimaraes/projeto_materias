@@ -6,7 +6,7 @@ from datetime import date
 import streamlit as st
 
 st.title("Projeto- Engenharia UFF")
-cursos = ['agricola' ,"civil"] #,"eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
+cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 curso_selecionado = st.selectbox('Cursos',cursos)
 
 def ler_dados(curso):
