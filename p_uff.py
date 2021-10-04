@@ -5,7 +5,9 @@ from plotly import graph_objs as go
 from datetime import date
 import streamlit as st
 
-st.sidebar.title("Projeto- Engenharia \n       UFF")
+st.sidebar.title("Projeto- Engenharia")
+st.sidebar.title("UFF")
+st.sidebar.header("2021")
 def ler_dados(curso):
     curso = curso + '.xlsx'
     base = pd.read_excel(curso)
