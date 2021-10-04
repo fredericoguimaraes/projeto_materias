@@ -66,6 +66,7 @@ dados_filtrado['classificacao'] = classificacao
 # Grafico 1
 
 d_graf2 = dados_filtrado[['classificacao','Código Disciplina']].groupby(dados_filtrado['classificacao']).count()/len(dados_filtrado)
+d_graf2 = d_graf2.reset_index(drop=True)
 w = 0.25
 x = np.arange(len(d_graf2))
 layout = go.Layout(
