@@ -6,6 +6,87 @@ from datetime import date
 import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia \n       UFF")
+
+def Tratabase(base):
+    l_colunas = ['Horário Seg', 'Horário Ter', 'Horário Qua', 'Horário Qui', 'Horário Sex', 'Horário Sáb']
+
+    for i in l_colunas:
+        horario1 = []
+        horario2 = []
+        for n in range(len(base)):
+
+            try:
+                horario1.append(int(base[i][n].split("-")[0].split(":")[0]))
+                horario2.append(int(base[i][n].split("-")[1].split(":")[0]))
+            except:
+                horario1.append("-")
+                horario2.append("-")
+            h1 = i + " " + "inicial"
+            h2 = i + " " + "final"
+        base[h1] = horario1
+        base[h2] = horario2
+
+    selec = ['Código Disciplina', 'Nome Disciplina', 'Código Turma',
+             'CH Teóricas', 'CH Práticas', 'CH Estágio',
+             'Horário Seg inicial', 'Horário Seg final',
+             'Horário Ter inicial', 'Horário Ter final', 'Horário Qua inicial',
+             'Horário Qua final', 'Horário Qui inicial', 'Horário Qui final',
+             'Horário Sex inicial', 'Horário Sex final', 'Horário Sáb inicial',
+             'Horário Sáb final']
+    colunas = base.columns
+    b = colunas.isin(selec)
+    filtro = colunas[b]
+    dados_filtrado = base[filtro]
+
+    col = ['Horário Seg inicial', 'Horário Ter inicial', 'Horário Qua inicial', 'Horário Qui inicial',
+           'Horário Sex inicial']
+    classificacao = [0 for a in range(len(dados_filtrado))]
+    for i in col:
+        for j in range(len(base)):
+            try:
+                if int(dados_filtrado[i][j]) < 12:
+                    turno = "Manhã"
+                if int(dados_filtrado[i][j]) >= 12 and int(dados_filtrado[i][j]) < 18:
+                    turno = "Tarde"
+                if int(dados_filtrado[i][j]) >= 18:
+                    turno = "Noite"
+
+                classificacao[j] = turno
+            except:
+                pass
+
+    dados_filtrado['classificacao'] = classificacao
+
+    return dados_filtrado
+def dados_barh(turno):
+    cursos = ['agricola', "civil", "eletrica", "mecanica", "petroleo", "producao", "quimica", "rec_hidricos", "telecom"]
+    df_barh = pd.DataFrame()
+    for l in cursos:
+        linha = {}
+        b = ler_dados(l)
+        dados = Tratabase(b)
+        total= dados.loc[dados['classificacao']!=0].value_counts().sum()
+        dados = dados.loc[dados['classificacao'] == turno]
+        resultado = dados['classificacao'].count()/total
+        linha = {'curso': l, 'valor': resultado}
+        df_barh = df_barh.append(linha,ignore_index=True)
+    return df_barh
+
+
+# grafico 2
+turnos = ['Manhã','Tarde','Noite']
+selec_turno = st.selectbox("Turno",turnos)
+
+base_g2 = dados_barh(selec_turno).sort_values(by='valor',ascending=True)
+layout = go.Layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)')
+fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h'),layout= layout)
+fig2.update_xaxes(visible=False)
+fig2.update_yaxes(visible=True)
+fig2.update_layout(title="Ranking de Cursos por Turno")
+fig2.update_layout_images(visible=False)
+st.plotly_chart(fig2)
 cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 curso_selecionado = st.selectbox('Cursos',cursos)
 
@@ -90,86 +171,6 @@ st.plotly_chart(fig)
 
 
 
-def Tratabase(base):
-    l_colunas = ['Horário Seg', 'Horário Ter', 'Horário Qua', 'Horário Qui', 'Horário Sex', 'Horário Sáb']
-
-    for i in l_colunas:
-        horario1 = []
-        horario2 = []
-        for n in range(len(base)):
-
-            try:
-                horario1.append(int(base[i][n].split("-")[0].split(":")[0]))
-                horario2.append(int(base[i][n].split("-")[1].split(":")[0]))
-            except:
-                horario1.append("-")
-                horario2.append("-")
-            h1 = i + " " + "inicial"
-            h2 = i + " " + "final"
-        base[h1] = horario1
-        base[h2] = horario2
-
-    selec = ['Código Disciplina', 'Nome Disciplina', 'Código Turma',
-             'CH Teóricas', 'CH Práticas', 'CH Estágio',
-             'Horário Seg inicial', 'Horário Seg final',
-             'Horário Ter inicial', 'Horário Ter final', 'Horário Qua inicial',
-             'Horário Qua final', 'Horário Qui inicial', 'Horário Qui final',
-             'Horário Sex inicial', 'Horário Sex final', 'Horário Sáb inicial',
-             'Horário Sáb final']
-    colunas = base.columns
-    b = colunas.isin(selec)
-    filtro = colunas[b]
-    dados_filtrado = base[filtro]
-
-    col = ['Horário Seg inicial', 'Horário Ter inicial', 'Horário Qua inicial', 'Horário Qui inicial',
-           'Horário Sex inicial']
-    classificacao = [0 for a in range(len(dados_filtrado))]
-    for i in col:
-        for j in range(len(base)):
-            try:
-                if int(dados_filtrado[i][j]) < 12:
-                    turno = "Manhã"
-                if int(dados_filtrado[i][j]) >= 12 and int(dados_filtrado[i][j]) < 18:
-                    turno = "Tarde"
-                if int(dados_filtrado[i][j]) >= 18:
-                    turno = "Noite"
-
-                classificacao[j] = turno
-            except:
-                pass
-
-    dados_filtrado['classificacao'] = classificacao
-
-    return dados_filtrado
-def dados_barh(turno):
-    cursos = ['agricola', "civil", "eletrica", "mecanica", "petroleo", "producao", "quimica", "rec_hidricos", "telecom"]
-    df_barh = pd.DataFrame()
-    for l in cursos:
-        linha = {}
-        b = ler_dados(l)
-        dados = Tratabase(b)
-        total= dados.loc[dados['classificacao']!=0].value_counts().sum()
-        dados = dados.loc[dados['classificacao'] == turno]
-        resultado = dados['classificacao'].count()/total
-        linha = {'curso': l, 'valor': resultado}
-        df_barh = df_barh.append(linha,ignore_index=True)
-    return df_barh
-
-
-# grafico 2
-turnos = ['Manhã','Tarde','Noite']
-selec_turno = st.selectbox("Turno",turnos)
-
-base_g2 = dados_barh(selec_turno).sort_values(by='valor',ascending=True)
-layout = go.Layout(
-    paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)')
-fig2 = go.Figure(go.Bar(x=base_g2['valor'],y=base_g2['curso'],orientation='h'),layout= layout)
-fig2.update_xaxes(visible=False)
-fig2.update_yaxes(visible=True)
-fig2.update_layout(title="Ranking de Cursos por Turno")
-fig2.update_layout_images(visible=False)
-st.plotly_chart(fig2)
 
     
 
