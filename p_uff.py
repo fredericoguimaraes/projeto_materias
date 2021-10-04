@@ -5,7 +5,7 @@ from plotly import graph_objs as go
 from datetime import date
 import streamlit as st
 
-st.title("Projeto- Engenharia UFF")
+st.sidebar.title("Projeto- Engenharia \n UFF")
 cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 curso_selecionado = st.selectbox('Cursos',cursos)
 
