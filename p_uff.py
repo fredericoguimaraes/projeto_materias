@@ -142,6 +142,8 @@ def Tratabase(base):
     dados_filtrado['classificacao'] = classificacao
 
     return dados_filtrado
+
+    return dados_filtrado
 def dados_barh(turno):
     cursos = ['agricola', "civil", "eletrica", "mecanica", "petroleo", "producao", "quimica", "rec_hidricos", "telecom"]
     df_barh = pd.DataFrame()
