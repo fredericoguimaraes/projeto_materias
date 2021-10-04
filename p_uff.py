@@ -14,7 +14,7 @@ def ler_dados(curso):
 
 
 cursos = ['agricola' ,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
-st.subheader('Matérias por turno para cada curso',font=20)
+st.subheader('Matérias por turno para cada curso')
 curso_selecionado = st.selectbox('Cursos',cursos)
 
 
