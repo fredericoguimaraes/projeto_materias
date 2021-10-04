@@ -7,7 +7,7 @@ import streamlit as st
 
 cursos = ['agricola'] #,"civil","eletrica","mecanica","petroleo","producao","quimica","rec_hidricos","telecom"]
 
-dados = pd.read_excel('agricola')
+dados = pd.read_excel('agricola.xlsx')
 
 l_colunas = [ 'Horário Seg', 'Horário Ter', 'Horário Qua', 'Horário Qui', 'Horário Sex','Horário Sáb']
 
