@@ -141,8 +141,6 @@ def Tratabase(base):
     dados_filtrado['classificacao'] = classificacao
 
     return dados_filtrado
-
-
 def dados_barh(turno):
     cursos = ['agricola', "civil", "eletrica", "mecanica", "petroleo", "producao", "quimica", "rec_hidricos", "telecom"]
     df_barh = pd.DataFrame()
@@ -156,6 +154,8 @@ def dados_barh(turno):
         linha = {'curso': l, 'valor': resultado}
         df_barh = df_barh.append(linha,ignore_index=True)
     return df_barh
+
+
 # grafico 2
 turnos = ['Manhã','Tarde','Noite']
 selec_turno = st.selectbox("Turno",turnos)
