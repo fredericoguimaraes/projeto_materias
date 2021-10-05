@@ -85,8 +85,7 @@ layout = go.Layout(
     plot_bgcolor='rgba(0,0,0,0)')
 fig = go.Figure(data=[
     go.Bar(name="Manhã",y=[d_graf2['Valor'][0]],text="{0:.2f}%".format(d_graf2['Valor'][0]*100),textposition="auto"),go.Bar(name="Tarde",y=[d_graf2['Valor'][2]],text="{0:.2f}%".format(d_graf2['Valor'][2]*100),textposition="auto"),go.Bar(name="Noite",y=[d_graf2['Valor'][1]],text="{0:.2f}%".format(d_graf2['Valor'][1]*100),textposition="auto")],layout=layout)
-fig.update_traces(hoverinfo = 'name', 
-                  textinfo = 'text', 
+fig.update_traces(hoverinfo = 'name+text ',  
                   textfont_size = 16)
 fig.update_xaxes(visible=False)
 fig.update_yaxes(visible=False)
