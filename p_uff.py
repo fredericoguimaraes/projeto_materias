@@ -7,8 +7,8 @@ import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia UFF")
 st.sidebar.header("       2021.2")
-
-st.sidebar.footer("Criado por: Frederico Guimarães")
+with st.sidebar.footer:
+  st.write("Criado por: Frederico Guimarães")
                   
 
 
