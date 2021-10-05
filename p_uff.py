@@ -8,13 +8,13 @@ import streamlit as st
 st.sidebar.title("Projeto- Engenharia UFF")
 st.sidebar.header("2021.2")
 hide_streamlit_style = """
-            fred
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
+            Criado por: Frederico Guimarães
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+st.sidebar.markdown(hide_streamlit_style, unsafe_allow_html=True) 
                   
 
 
