@@ -7,9 +7,14 @@ import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia UFF")
 st.sidebar.header("       2021.2")
-st.sidebar.write(" ")
-st.sidebar.write(" ")
-st.sidebar.write(" ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
+st.sidebar.write("  ")
 st.sidebar.write("Criado por: Frederico Guimarães")
 def ler_dados(curso):
     curso = curso + '.xlsx'
