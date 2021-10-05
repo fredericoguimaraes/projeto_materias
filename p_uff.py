@@ -7,9 +7,13 @@ import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia UFF")
 st.sidebar.header("2021.2")
-st.sidebar.title(" ")
-st.sidebar.title(" ")
-st.sidebar.write("Criado por: Frederico Guimarães")
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
                   
 
 
