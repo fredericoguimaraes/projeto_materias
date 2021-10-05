@@ -5,16 +5,17 @@ from plotly import graph_objs as go
 from datetime import date
 import streamlit as st
 
-st.sidebar.title("Projeto- Engenharia UFF")
-st.sidebar.header("2021.2")
 hide_streamlit_style = """
+            Criado por: Frederico Guimarães
             <style>
             #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            Criado por: Frederico Guimarães
+            footer {visibility: hidden;} 
             </style>
-            
             """
+st.sidebar.title("Projeto- Engenharia UFF")
+st.sidebar.header("2021.2")
+
+            
 st.sidebar.markdown(hide_streamlit_style, unsafe_allow_html=True) 
                   
 
