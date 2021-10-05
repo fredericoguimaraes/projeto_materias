@@ -6,9 +6,10 @@ from datetime import date
 import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia UFF")
-st.sidebar.header("       2021.2")
-with st.sidebar.footer:
-  st.write("Criado por: Frederico Guimarães")
+st.sidebar.header("2021.2")
+st.sidebar.title(" ")
+st.sidebar.title(" ")
+st.write("Criado por: Frederico Guimarães")
                   
 
 
