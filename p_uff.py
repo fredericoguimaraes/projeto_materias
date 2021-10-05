@@ -7,11 +7,11 @@ import streamlit as st
 
 st.sidebar.title("Projeto- Engenharia UFF")
 st.sidebar.header("       2021.2")
-st.sidebar.header("      n\
-                         n\
-                        n\
-                        n\
-                        n\" )
+st.sidebar.header("      \n
+                         \n
+                        \n
+                        \n
+                        \n" )
 st.sidebar.write("Criado por: Frederico Guimarães")
                   
 
